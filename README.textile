@@ -46,6 +46,7 @@ h2. Running the Test Cases
 (Note, as of Nov. 4, 2011 this test fails against bigcouch)
 
 h2. A Scala view design document:
+
 A minimal scala view (map only) design document looks like:
 {
    "_id": "_design/return",
