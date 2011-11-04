@@ -24,18 +24,18 @@ h2. Compiling the Scala View Server
 h2. Setting up the view server to run with CouchDB/BigCouch
  * The original instructions are in the document:"Scala View Server":http://wiki.github.com/debasishg/scouchdb/scala-view-server .  This is the condensed version for non scala experts.
  * Modify the CouchDB local.ini file.  Assuming your project director is $HOME/scouchdb, the local.ini file should look like:  
-==
+
 [query_servers]
 scala=scala -classpath $HOME/scouchdb/target/scala_2.9.0-1/scouchdb_2.9.0-1-0.7.jar:$HOME/scouchdb/lib_managed/scala_2.9.0-1/compile/sjson_2.9.0-1-0.13.jar:$HOME/scouchdb/lib_managed/scala_2.9.0-1/compile/dispatch-core_2.9.0-1-0.8.3.jar:$HOME/scouchdb/lib_managed/scala_2.9.0-1/compile/dispatch-json_2.9.0-1-0.8.3.jar -DCDB_VIEW_CLASSPATH=$HOME/scouchdb/target/scala_2.9.0-1/scouchdb_2.9.0-1-0.7.jar:$HOME/scouchdb/lib_managed/scala_2.9.0-1/compile/sjson_2.9.0-1-0.13.jar:$HOME/scouchdb/lib_managed/scala_2.9.0-1/compile/dispatch-core_2.9.0-1-0.8.3.jar:$HOME/scouchdb/lib_managed/scala_2.9.0-1/compile/dispatch-json_2.9.0-1-0.8.3.jar:$HOME/scouchdb/lib_managed/scala_2.9.0-1/test/scalatest_2.9.0-1.6.1.jar scouch.db.VS "/tmp/view.txt"
-==
+
  * To test if the view server is running correctly, you can run the command above from the command line (everything after the = sign).  The view server communicates via stdio, so type '["reset"]' and it should return true.
 
 h2. Running the Test Cases
  * run couchdb server
  * sbt -- version 0.7.7 of sbt is required and can be found on the "google code simple-build-tool page":http://code.google.com/p/simple-build-tool/ .  Download  "sbt-launch-0.7.7.jar":http://simple-build-tool.googlecode.com/files/sbt-launch-0.7.7.jar .  In the same directory where you place the jar file, you'll need an executable script (I called it sbt-0.7.7):
-==
+
     java -Xmx512M -jar `dirname $0`/sbt-launch-0.7.7.jar "$\@"
-==
+
  * put that directory on your path
  * in the scouchdb project directory, type `sbt-0.7.7` to launch sbt
  * run these commands from the sbt prompt  
